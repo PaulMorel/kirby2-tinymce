@@ -20,7 +20,7 @@ class TinyMCEField extends BaseField
 
     public function input() {
         $input = new Brick('textarea', false);
-//        $input->addClass('input');
+        $input->addClass('input');
 //        $input->attr([
 //            'type'         => $this->type(),
 //            'value'        => '',
