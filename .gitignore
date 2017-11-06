@@ -146,3 +146,4 @@ GitHub.sublime-settings
 *.css.map
 
 # End of https://www.gitignore.io/api/phpstorm,kirby2,windows,dreamweaver,sublimetext,vagrant,sass
+/.idea/
