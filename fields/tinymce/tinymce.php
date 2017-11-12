@@ -41,7 +41,7 @@ class TinyMCEField extends BaseField
 
         $wrapper = new Brick('div', false);
         $wrapper->append($input);
-        $wrapper->append('<script>tinymce.init({ selector: "textarea.field-tinymce" });</script>');
+        $wrapper->append('<script>tinymce.init({ selector: "textarea.field-tinymce", skin_url: "/panel/plugins/tinymce/assets/css/skins/lightgray"  });</script>');
         return $wrapper;
     }
 
