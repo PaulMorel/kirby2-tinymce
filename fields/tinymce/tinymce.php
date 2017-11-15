@@ -3,15 +3,10 @@
 class TinyMCEField extends BaseField
 {
 
-
     public static $assets = [
         'js'  => [
             'tinymce.min.js'
         ],
-//        'css' => [
-//            'skins/lightgray/skin.min.css',
-//            'skins/lightgray/content.min.css',
-//        ]
     ];
 
 
@@ -22,6 +17,9 @@ class TinyMCEField extends BaseField
         $this->type = 'tinymce';
     }
 
+    /**
+     * @return string
+     */
     public function input() {
         $input = new Brick('textarea', false);
         $input->addClass('field-tinymce');
@@ -43,10 +41,20 @@ class TinyMCEField extends BaseField
             $input->addClass('input-is-readonly');
         }
 
-        $wrapper = new Brick('div', false);
-        $wrapper->append($input);
-        $wrapper->append('<script>tinymce.init({ selector: "textarea.field-tinymce", skin_url: "/panel/plugins/tinymce/css/skins/lightgray"  });</script>');
-        return $wrapper;
-    }
+        $init_script = '<script>
+            tinymce.init({ 
+                selector: "textarea.field-tinymce", 
+                skin_url: "/panel/plugins/tinymce/css/skins/kirby", 
+                branding: false, 
+                menubar: "edit insert view format table tools help",
+                init_instance_callback: function (editor) {
+                    editor.on("focus", function (e) {
+                      console.log("Editor got focus!", e, editor);
+                    });
+                } 
+            });
+        </script>';
 
+        return $input . $init_script;
+    }
 }
