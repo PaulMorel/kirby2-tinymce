@@ -1,14 +1,16 @@
 <?php
 
+/**
+ * Class TinyMCEField
+ */
 class TinyMCEField extends BaseField
 {
 
     public static $assets = [
-        'js'  => [
+        'js' => [
             'tinymce.min.js'
         ],
     ];
-
 
     /**
      * TinyMCEField constructor.
@@ -48,13 +50,35 @@ class TinyMCEField extends BaseField
                 branding: false, 
                 menubar: "edit insert view format table tools help",
                 init_instance_callback: function (editor) {
-                    editor.on("focus", function (e) {
-                      console.log("Editor got focus!", e, editor);
-                    });
+                    var editorContainer = document.querySelector(".mce-tinymce");
+                    
+                    editor.on("focus", function () {
+                       editorContainer.classList.add("mce-tinymce--is-focused");
+                    }).on("blur", function () {
+                        editorContainer.classList.remove("mce-tinymce--is-focused");
+                    }).on("change", function () {
+                        editor.save();
+                    }); 
                 } 
             });
         </script>';
 
         return $input . $init_script;
+    }
+
+    /**
+     * Field value
+     * @return string
+     */
+    public function value() {
+        return parent::value();
+    }
+
+    /**
+     * Field on save
+     * @return string
+     */
+    public function result() {
+        return parent::result();
     }
 }
