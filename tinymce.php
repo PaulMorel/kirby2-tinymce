@@ -14,6 +14,11 @@
 if ( ! function_exists('panel') ) return;
 
 /**
+ * Require Composer packages
+ */
+require_once __DIR__ . DS . 'vendor' . DS . 'autoload.php';
+
+/**
  * Registers the TinyMCE field
  */
 $kirby->set('field', 'tinymce', __DIR__ . DS . 'fields' . DS . 'tinymce');

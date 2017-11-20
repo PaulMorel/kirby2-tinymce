@@ -1,13 +1,14 @@
 <?php
 
-/**
- * Class TinyMCEField
- */
+use Markdownify\Converter;
+use Markdownify\ConverterExtra;
+
 class TinyMCEField extends BaseField
 {
 
     public static $assets = [
         'js' => [
+            'tinymce-field.js',
             'tinymce.min.js'
         ],
     ];
@@ -20,7 +21,7 @@ class TinyMCEField extends BaseField
     }
 
     /**
-     * @return string
+     * @return Brick
      */
     public function input() {
         $input = new Brick('textarea', false);
@@ -43,35 +44,23 @@ class TinyMCEField extends BaseField
             $input->addClass('input-is-readonly');
         }
 
-        $init_script = '<script>
-            tinymce.init({ 
-                selector: "textarea.field-tinymce", 
-                skin_url: "/panel/plugins/tinymce/css/skins/kirby", 
-                branding: false, 
-                menubar: "edit insert view format table tools help",
-                init_instance_callback: function (editor) {
-                    var editorContainer = document.querySelector(".mce-tinymce");
-                    
-                    editor.on("focus", function () {
-                       editorContainer.classList.add("mce-tinymce--is-focused");
-                    }).on("blur", function () {
-                        editorContainer.classList.remove("mce-tinymce--is-focused");
-                    }).on("change", function () {
-                        editor.save();
-                    }); 
-                } 
-            });
-        </script>';
-
-        return $input . $init_script;
+        return $input;
     }
 
+    public function element() {
+        $element = parent::element();
+        $element->data('field', 'tinymcefield');
+
+        return $element;
+    }
     /**
      * Field value
      * @return string
      */
     public function value() {
-        return parent::value();
+        $convertMarkdowntoHTML = c::get('markdown.extra') ? new ParsedownExtra : new Parsedown;
+
+        return $convertMarkdowntoHTML->text(parent::value());
     }
 
     /**
@@ -79,6 +68,8 @@ class TinyMCEField extends BaseField
      * @return string
      */
     public function result() {
-        return parent::result();
+        $convertHTMLtoMarkdown = c::get('markdown.extra') ? new ConverterExtra : new Converter;
+
+        return $convertHTMLtoMarkdown->parseString(parent::result());
     }
 }
