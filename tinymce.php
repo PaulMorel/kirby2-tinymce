@@ -7,6 +7,7 @@
  *
  * @version 0.1.0
  * @author Paul Morel <paul.morel@gmail.com>
+ * @copyright  Paul Morel <paul.morel@gmail.com>
  * @link https://github.com/PaulMorel/kirby-tinymce
  * @license   GNU LGPL-2.1 <https://opensource.org/licenses/LGPL-2.1>
  */

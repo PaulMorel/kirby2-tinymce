@@ -5,7 +5,7 @@
 
 Kirby TinyMCE is the classic and familliar WYSIWYG editor TinyMCE as a panel field for [Kirby 2 CMS](https://getkirby.com/).
 
-The plugin is currently under development. Check out the [develop](https://github.com/PaulMorel/kirby-tinymce/tree/develop) branch for updates.
+The plugin is currently in its early development stages. Expect bugs. Check out the [develop](https://github.com/PaulMorel/kirby-tinymce/tree/develop) branch for updates.
 
 ## Requirements
 
@@ -38,6 +38,11 @@ $ kirby plugin:install PaulMorel/kirby-tinymce
 ### 0.1.0
 - Initial Release
 
+## Roadmap
+
+- Handle Kirby image uploads via TinyMCE
+- Add options
+- Add unit tests
 ## Contributing
 Any contribution is welcome. Don't hesitate to create Issues, Pull Requests or any suggestion.
 
