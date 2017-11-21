@@ -13,8 +13,9 @@
                 field.data('tinymcefield', true);
             }
 
-            // your field plugin code
-            tinymce.init({
+            console.log( $('textarea.field-tinymce'));
+
+            var options = {
                 selector: "textarea.field-tinymce",
                 skin_url: "/panel/plugins/tinymce/css/skins/kirby",
                 branding: false,
@@ -30,9 +31,10 @@
                         editor.save();
                     });
                 }
-            });
+            };
 
-            console.log('Plugin Loaded');
+            // your field plugin code
+            tinymce.init(options);
 
         });
 
