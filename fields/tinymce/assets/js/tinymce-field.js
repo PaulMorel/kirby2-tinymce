@@ -5,16 +5,27 @@
         return this.each(function() {
 
             var field = $(this);
-
-            // avoid multiple inits
+             // avoid multiple inits
             if(field.data('tinymcefield')) {
                 return true;
             } else {
                 field.data('tinymcefield', true);
             }
 
-            console.log( $('textarea.field-tinymce'));
+            // Get form field ID
+            var fieldClasses = field.attr('class').split(" ");
+            var editorId;
 
+            $.each(fieldClasses, function(i, value){
+                if ( value.indexOf('field-name') !== -1 ) {
+                    editorId = fieldClasses[i].replace('field-name', 'form-field');
+                }
+            });
+
+            // Remove an existing TinyMCE instances
+            tinymce.EditorManager.execCommand('mceRemoveEditor', true, editorId);
+
+            // Options
             var options = {
                 selector: "textarea.field-tinymce",
                 skin_url: "/panel/plugins/tinymce/css/skins/kirby",
@@ -33,8 +44,8 @@
                 }
             };
 
-            // your field plugin code
-            tinymce.init(options);
+            // Initialize TinyMCE
+           tinymce.init(options);
 
         });
 
