@@ -25,12 +25,13 @@
             // Remove an existing TinyMCE instances
             tinymce.EditorManager.execCommand('mceRemoveEditor', true, editorId);
 
+
             // Options
             var options = {
-                selector: "textarea.field-tinymce",
+                selector: ".field-with-tinymce textarea",
                 skin_url: "/panel/plugins/tinymce/css/skins/kirby",
                 branding: false,
-                menubar: "edit insert view format table tools help",
+                menubar: field.data('menubar'),
                 init_instance_callback: function (editor) {
                     var editorContainer = document.querySelector(".mce-tinymce");
 
