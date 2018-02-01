@@ -116,10 +116,12 @@ class TinyMCEField extends BaseField
     public function element() {
         $element = parent::element();
         $element->addClass('field-with-tinymce');
+
         $element->data('field', 'tinymcefield');
         $element->data('menubar', $this->menubar);
         $element->data('plugins', $this->plugins);
         $element->data('toolbar', $this->toolbar);
+
         return $element;
     }
 
