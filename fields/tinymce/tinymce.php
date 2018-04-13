@@ -27,23 +27,31 @@ class TinyMCEField extends BaseField
      * @since 0.1.0
      * @var array|null
      */
-    public $plugins;
+    protected $plugins;
 
     /**
      * TinyMCE toolbar options
      *
      * @since 0.1.0
-     * @var string|null
+     * @var string|array|bool
      */
-    public $toolbar;
+    protected $toolbar;
 
     /**
      * TinyMCE menubar options
      *
      * @since 0.1.0
-     * @var string|null
+     * @var string|bool
      */
-    public $menubar;
+    protected $menubar;
+
+    /**
+     * TinyMCE misc and plugin options
+     *
+     * @since 0.1.0
+     * @var array|null
+     */
+    public $options;
 
     /**
      * Field option defaults
@@ -52,8 +60,8 @@ class TinyMCEField extends BaseField
      * @var array
      */
     protected $defaults = [
-        'plugins'   =>  [],
-        'toolbar'   =>  '',
+        'plugins'   =>  'autoresize link lists image visualblocks code visualchars',
+        'toolbar'   =>  'styleselect | bold italic | link image',
         'menubar'   =>  'edit insert view format table tools help'
     ];
 
