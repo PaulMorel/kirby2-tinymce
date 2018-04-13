@@ -79,9 +79,10 @@ Available plugins
 - autoresize
 - charmap
 - code
+- codesample
 - colorpicker
 - contextmenu
-- directionalityv
+- directionality
 - hr
 - image
 - insertdatetime
@@ -94,6 +95,9 @@ Available plugins
 - tabfocus
 - table
 - template
+- visualblocks
+- visualchars
+- wordcount
   
 ### `toolbar`
 
