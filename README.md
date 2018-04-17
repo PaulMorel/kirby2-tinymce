@@ -13,9 +13,8 @@ The plugin is currently in its early development stages. Expect bugs. Check out 
 - Kirby 2.5.3+
 
 ### Included Dependencies
-- Parsedown 1.6.0
-- Parsedown Extra 0.7.0
 - Markdownify 2.2.2
+- TinyMCE 4.7.11
 
 ## Installation
 
@@ -74,7 +73,7 @@ Allows you to specify which plugins TinyMCE will attempt to load when starting u
 
 Type: `String`
 
-Available plugins
+Currently available plugins:
 - autolink
 - autoresize
 - charmap
@@ -105,7 +104,7 @@ Allows you to specify the controls that should appear on TinyMCE's toolbar. See 
 
 Type: `String|Array|Bool`
  
-### menubar
+### `menubar`
 
 Allows you to specify which menus should appear on TinyMCE's menubar. See the [TinyMCE documentation](https://www.tinymce.com/docs/configure/editor-appearance/#menubar) for more detailed information.
 
@@ -118,10 +117,11 @@ Type: `String|Bool`
 
 ## Roadmap
 
-- Handle Kirby image uploads via TinyMCE
+- Get TinyMCE dependency via `composer` instead of a manual download
 - Internationalisation and localisation where applicable
 - Add unit tests where applicable
 - Add individual plugin options
+- Update theme to match panel styles
 
 ## Contributing
 Any suggestion or contribution is welcome. Don't hesitate to create Issues and Pull Requests.

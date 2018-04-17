@@ -60,8 +60,8 @@ class TinyMCEField extends BaseField
      * @var array
      */
     protected $defaults = [
-        'plugins'   =>  'autoresize link lists image visualblocks code visualchars',
-        'toolbar'   =>  'styleselect | bold italic | link image',
+        'plugins'   =>  'autoresize link lists image visualblocks code codesample visualchars',
+        'toolbar'   =>  'styleselect | bold italic | link image | codesample',
         'menubar'   =>  'edit insert view format table tools help'
     ];
 
