@@ -88,8 +88,13 @@ div.mce-fullscreen {
     border: 2px solid #ddd !important;
 }
 
-.mce-tinymce--is-focused {
+.focus {
     border-color: #8dae28 !important;
+}
+
+.over {
+    border-color: #000 !important;
+    
 }
 
 .mce-statusbar > .mce-container-body {

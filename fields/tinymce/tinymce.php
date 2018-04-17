@@ -129,6 +129,8 @@ class TinyMCEField extends BaseField
         $element->data('menubar', $this->menubar);
         $element->data('plugins', $this->plugins);
         $element->data('toolbar', $this->toolbar);
+        $element->data('page-url', $this->page()->url());
+        $element->data('site-url', site()->url());
 
         return $element;
     }
