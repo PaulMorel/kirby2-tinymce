@@ -1,0 +1,8 @@
+{
+    "name": "kirby-tinymce",
+    "description": "Kirby TinyMCE is the classic and familliar WYSIWYG editor TinyMCE as a panel field for Kirby 2 CMS.",
+    "author": "Paul Morel <paul.morel@gmail.com>",
+    "version": "0.1.0",
+    "type": "kirby-plugin",
+    "license": "LGPLv2.1"  
+  }
